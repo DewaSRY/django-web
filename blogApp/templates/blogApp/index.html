@@ -1,0 +1,54 @@
+{% extends "base.html"%} {% load static %}
+<!-- ______________________________________________________________---  -->
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'blogApp/index.css' %}" />
+{% endblock %}
+<!-- ______________________________________________________________--- -->
+{% block content %}
+<header id="main-navigation">
+  <h1><a href=""> Dewa Blog</a></h1>
+  <nav>
+    <a href=""> All posts</a>
+  </nav>
+</header>
+
+<section id="welcome">
+  <header>
+    <img src="" alt="Dewa" />
+    <h2>Leo Busines and Grow</h2>
+  </header>
+  <p>Hi i am dewa i love to blog about tech and the world</p>
+</section>
+
+<section id="latest-posts">
+  <h2>My latest Toughts</h2>
+  <ul>
+    <li>
+      <article class="post">
+        <a href="">
+          <img src="" alt="Mountain hiking" />
+          <div class="post__content">
+            <h3>
+              There;s nothing like the views you get when hiking in the
+              mounteains ! and i wasen't event prepared for what happend ahilst
+              i was enjoying the view!
+            </h3>
+          </div>
+        </a>
+      </article>
+    </li>
+  </ul>
+</section>
+
+<section id="about">
+  <h2>What i do</h2>
+  <p>
+    I love programing ilove to help others and i ejoy exploring new tecnologie
+  </p>
+  <p>
+    my gols is keeep on growing as developer and if icould help you do the sam
+    i'd be to be happy
+  </p>
+</section>
+
+{% endblock %}
