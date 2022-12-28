@@ -1,0 +1,22 @@
+{% extends "base.html"%} {% load static %}
+<!-- ______________________________________________________________---  -->
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'blogApp/index.css' %}" />
+<link rel="stylesheet" href="{% static 'blogApp/all_posts.css' %}" />
+{% endblock %}
+<!-- ______________________________________________________________--- -->
+{% block title %}All my post{% endblock %}
+<!-- ___________________________________________________________________________________________-- -->
+{% block content %}
+<section id="all-posts"></section>
+<h2>My collected Posts</h2>
+
+<ul>
+  {% for post in posts %}
+  <!-- ______________________________________________________________--- -->
+  {% include "../includes/post.html" %}
+  <!-- ______________________________________________________________--- -->
+  {% endfor %}
+</ul>
+
+{% endblock %}

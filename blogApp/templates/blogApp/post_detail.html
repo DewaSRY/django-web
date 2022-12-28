@@ -1,0 +1,50 @@
+{% extends "base.html"%} {% load static %}
+<!-- ______________________________________________________________---  -->
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'blogApp/post_detail.css' %}" />
+{% endblock %}
+<!-- ___________________________________________________________________________________________-- -->
+{% block title %} Leo Blog's {% endblock %}
+
+<!-- ______________________________________________________________--- -->
+{% block content %}
+<section id="summary">
+  <h2>Title</h2>
+  <h1>{{post.title}}</h1>
+  <article>
+    <img src="{% static "blogApp/photos/"|add:post.image %}"
+    alt="{{post.image}}"/>
+    <!-- _________________________________________________________________________________________ -->
+
+    <address>{{post.author}}</address>
+    <div>last update <time> {{post.date|date:'d m y'}} </time></div>
+  </article>
+</section>
+<main>
+  <p>{{post.content|linebreaks}}</p>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
+    doloribus, assumenda ut laboriosam officia est esse cumque voluptate animi
+    suscipit soluta rerum nostrum deleniti. Perferendis blanditiis molestias
+    exercitationem ut impedit.
+  </p>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
+    doloribus, assumenda ut laboriosam officia est esse cumque voluptate animi
+    suscipit soluta rerum nostrum deleniti. Perferendis blanditiis molestias
+    exercitationem ut impedit.
+  </p>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
+    doloribus, assumenda ut laboriosam officia est esse cumque voluptate animi
+    suscipit soluta rerum nostrum deleniti. Perferendis blanditiis molestias
+    exercitationem ut impedit.
+  </p>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
+    doloribus, assumenda ut laboriosam officia est esse cumque voluptate animi
+    suscipit soluta rerum nostrum deleniti. Perferendis blanditiis molestias
+    exercitationem ut impedit.
+  </p>
+</main>
+{% endblock %}

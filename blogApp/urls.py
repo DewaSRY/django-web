@@ -15,7 +15,7 @@ Including another URLconf
 """
 
 from django.urls import path
-from .views import starting_page,post,post_detail
+from .views import starting_page, post, post_detail
 
 urlpatterns = [
     path("",starting_page,name='starting_pages' ),

@@ -1,7 +1,8 @@
+from datetime import date
 posts = [
     {
         "slug": "hike-in-the-mountains",
-        "image": "mountains.jpg",
+        "image": "mountain.png",
         "author": "Maximilian",
         "date": date(2021, 7, 21),
         "title": "Mountain Hiking",
@@ -22,7 +23,7 @@ posts = [
     },
     {
         "slug": "programming-is-fun",
-        "image": "coding.jpg",
+        "image": "python.jpg",
         "author": "Maximilian",
         "date": date(2022, 3, 10),
         "title": "Programming Is Great!",
@@ -43,7 +44,7 @@ posts = [
     },
     {
         "slug": "into-the-woods",
-        "image": "woods.jpg",
+        "image": "wood.png",
         "author": "Maximilian",
         "date": date(2020, 8, 5),
         "title": "Nature At Its Best",

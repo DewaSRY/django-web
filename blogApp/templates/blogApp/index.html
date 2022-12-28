@@ -3,40 +3,26 @@
 {% block css_files %}
 <link rel="stylesheet" href="{% static 'blogApp/index.css' %}" />
 {% endblock %}
+<!-- ___________________________________________________________________________________________-- -->
+{% block title %} Leo Blog's {% endblock %}
 <!-- ______________________________________________________________--- -->
 {% block content %}
-<header id="main-navigation">
-  <h1><a href=""> Dewa Blog</a></h1>
-  <nav>
-    <a href=""> All posts</a>
-  </nav>
-</header>
-
 <section id="welcome">
   <header>
-    <img src="" alt="Dewa" />
+    <img src="{% static "blogApp/photos/man.png"%}" alt="Dewa" />
     <h2>Leo Busines and Grow</h2>
   </header>
-  <p>Hi i am dewa i love to blog about tech and the world</p>
+  <p style="text-align:center";">Everythong yo need to know about life</p>
 </section>
 
 <section id="latest-posts">
   <h2>My latest Toughts</h2>
   <ul>
-    <li>
-      <article class="post">
-        <a href="">
-          <img src="" alt="Mountain hiking" />
-          <div class="post__content">
-            <h3>
-              There;s nothing like the views you get when hiking in the
-              mounteains ! and i wasen't event prepared for what happend ahilst
-              i was enjoying the view!
-            </h3>
-          </div>
-        </a>
-      </article>
-    </li>
+    {% for post in posts %}
+    <!-- ______________________________________________________________--- -->
+    {% include "../includes/post.html" %}
+    <!-- ______________________________________________________________--- -->
+    {% endfor %}
   </ul>
 </section>
 
