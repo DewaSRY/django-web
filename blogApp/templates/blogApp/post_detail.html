@@ -12,11 +12,10 @@
   <h2>Title</h2>
   <h1>{{post.title}}</h1>
   <article>
-    <img src="{% static "blogApp/photos/"|add:post.image %}"
-    alt="{{post.image}}"/>
+    <img src="{% static "blogApp/photos/"|add:post.image_name %}"
+    alt="{{post.image_name }}"/>
     <!-- _________________________________________________________________________________________ -->
-
-    <address>{{post.author}}</address>
+    <address><a href="mileto:sdewa6645@gmail.com">{{post.author}}</a></address>
     <div>last update <time> {{post.date|date:'d m y'}} </time></div>
   </article>
 </section>
