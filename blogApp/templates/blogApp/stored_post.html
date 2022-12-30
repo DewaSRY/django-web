@@ -7,17 +7,18 @@
 {% block title %} My Stored Posts{% endblock %}
 <!-- ______________________________________________________________--- -->
 {% block content %}
-<section id="stored_post">
 
+
+<section id="stored_post">
+  <h2>there is your sotored posts</h2>
   <ul>
+    {% if not has_posts %}
+    <p> you did't savaa any post</p>
+    {% endif%}
     {% for post in  posts  %}
-    <li>hallo</li>
     <li><a href="{% url "post_detail_pages"  post.slug %}"><h1>{{post.title}} </h1> </a></li>
     {% endfor %}
-
   </ul>
-  <li>{{posts}}</li>
-
 </section>
 
 {% endblock %} 

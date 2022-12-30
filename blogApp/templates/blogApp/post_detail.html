@@ -11,7 +11,7 @@
 <!-- ______________________________________________________________--- -->
 {% block content %}
 <section id="summary">
-  <h2>Title</h2>
+  <h2>title</h2>
   <h1>{{post.title}}</h1>
   <!-- ______________________________________________________________--- -->
   <div class="tag">
@@ -19,13 +19,18 @@
     <span>{{tag.caption}}</span>
     {% endfor %}
   </div>
+  <!-- _________________________________________________________________________________________ -->
   <div id="read_later">
     <form action="{% url 'read_later' %}" method="post">
       {% csrf_token %}
       <input type="hidden" value="{{post.id}}" name="post_id" />
-      <button>Read Leter</button>
+      <button>
+        {% if is_save_for_later %} Remove from "read later" list {% else %} Read
+        Leter {% endif %}
+      </button>
     </form>
   </div>
+  <!-- ___________________________________________________________________________________________________________- -->
   <article>
     <img src="{{post.image_name.url}}" alt="{{post.image_name }}" />
     <!-- _________________________________________________________________________________________ -->
