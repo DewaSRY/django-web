@@ -1,4 +1,6 @@
-{% extends "base.html"%} {% load static %}
+{% extends "base.html"%}
+<!-- _________________________________________________________________________________________ -->
+{% load static %}
 <!-- ______________________________________________________________---  -->
 {% block css_files %}
 <link rel="stylesheet" href="{% static 'blogApp/post_detail.css' %}" />
@@ -11,39 +13,60 @@
 <section id="summary">
   <h2>Title</h2>
   <h1>{{post.title}}</h1>
+  <!-- ______________________________________________________________--- -->
+  <div class="tag">
+    {% for tag in post_tags%}
+    <span>{{tag.caption}}</span>
+    {% endfor %}
+  </div>
+  <div id="read_later">
+    <form action="{% url 'read_later' %}" method="post">
+      {% csrf_token %}
+      <input type="hidden" value="{{post.id}}" name="post_id" />
+      <button>Read Leter</button>
+    </form>
+  </div>
   <article>
-    <img src="{% static "blogApp/photos/"|add:post.image_name %}"
-    alt="{{post.image_name }}"/>
+    <img src="{{post.image_name.url}}" alt="{{post.image_name }}" />
     <!-- _________________________________________________________________________________________ -->
-    <address><a href="mileto:sdewa6645@gmail.com">{{post.author}}</a></address>
+    <address>
+      <a href="mileto:{{post.author.email_address}}">{{post.author}}</a>
+    </address>
     <div>last update <time> {{post.date|date:'d m y'}} </time></div>
   </article>
 </section>
+{% if Comment_Form.errors %}
+<div id="alert">
+  <h2>Saving the comment failed</h2>
+  <p>Please check the comment form below the post and fix your errors</p>
+  <a href="#comment_form">Fix it!</a>
+</div>
+{% endif %}
 <main>
   <p>{{post.content|linebreaks}}</p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
-    doloribus, assumenda ut laboriosam officia est esse cumque voluptate animi
-    suscipit soluta rerum nostrum deleniti. Perferendis blanditiis molestias
-    exercitationem ut impedit.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
-    doloribus, assumenda ut laboriosam officia est esse cumque voluptate animi
-    suscipit soluta rerum nostrum deleniti. Perferendis blanditiis molestias
-    exercitationem ut impedit.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
-    doloribus, assumenda ut laboriosam officia est esse cumque voluptate animi
-    suscipit soluta rerum nostrum deleniti. Perferendis blanditiis molestias
-    exercitationem ut impedit.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
-    doloribus, assumenda ut laboriosam officia est esse cumque voluptate animi
-    suscipit soluta rerum nostrum deleniti. Perferendis blanditiis molestias
-    exercitationem ut impedit.
-  </p>
+  <p>{{post.content|linebreaks}}</p>
+  <p>{{post.content|linebreaks}}</p>
 </main>
+<section id="comment">
+  <ul>
+    {% for comment in Comment %}
+    <li>
+      <h2>{{comment.user_name}}</h2>
+      <p>{{comment.text|linebreaks}}</p>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+<section id="comment_form">
+  <h2>Your Comment</h2>
+  <form action="{% url 'post_detail_pages' post.slug %}" method="post">
+    {% csrf_token %} {% for form_field in Comment_Form %}
+    <div class="form_control {% if form_field.errors %} invalid {% endif %}">
+      {{form_field.label_tag}} {{form_field}} {{form_field.errors}}
+    </div>
+    {% endfor %}
+    <button>Save commend</button>
+  </form>
+</section>
+<!--  -->
 {% endblock %}

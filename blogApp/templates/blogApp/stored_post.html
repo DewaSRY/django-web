@@ -1,0 +1,23 @@
+{% extends "base.html"%} {% load static %}
+<!-- ______________________________________________________________---  -->
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'blogApp/stored_post.css' %}" />
+{% endblock %}
+<!-- ___________________________________________________________________________________________-- -->
+{% block title %} My Stored Posts{% endblock %}
+<!-- ______________________________________________________________--- -->
+{% block content %}
+<section id="stored_post">
+
+  <ul>
+    {% for post in  posts  %}
+    <li>hallo</li>
+    <li><a href="{% url "post_detail_pages"  post.slug %}"><h1>{{post.title}} </h1> </a></li>
+    {% endfor %}
+
+  </ul>
+  <li>{{posts}}</li>
+
+</section>
+
+{% endblock %} 
